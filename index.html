@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>기출 분류표</title>
+<title>행정학 기출 분류표</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -18,12 +18,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .ct{font-size:28px;font-weight:600;}
 .cs{font-size:13px;opacity:.45;font-style:italic;text-align:center;}
 .ca{position:absolute;bottom:14px;right:16px;font-size:14px;opacity:.2;}
+.c1{background:#FDEBD0;color:#7D4A1A;}
+.c2{background:#D5EEE8;color:#1A5C4A;}
+.c3{background:#FEFBD0;color:#6B6200;}
+.c4{background:#DFF2D0;color:#2A5C1A;}
 .hdr{display:flex;align-items:center;padding:10px 16px;border-bottom:.5px solid #e5e5e5;background:#fff;position:sticky;top:0;z-index:10;}
 .back{background:none;border:.5px solid #ddd;border-radius:6px;padding:5px 10px;cursor:pointer;font-size:12px;color:#555;display:flex;align-items:center;gap:3px;flex-shrink:0;margin-right:8px;}
 .back:hover{background:#f5f5f5;}
 .badge{font-size:11px;font-weight:500;padding:3px 9px;border-radius:100px;flex-shrink:0;}
 .harrow{font-size:13px;color:#bbb;margin:0 6px;}
-.hnav{display:flex;align-items:center;overflow-x:auto;flex:1;}
+.hnav{display:flex;align-items:center;overflow-x:auto;flex:1;gap:0;}
 .hnav::-webkit-scrollbar{display:none;}
 .hsec{font-size:12px;font-weight:500;cursor:pointer;padding:3px 8px;border-radius:6px;white-space:nowrap;color:#666;}
 .hsec:hover{background:#f5f5f5;}
@@ -46,10 +50,6 @@ th,td{border:.5px solid #e5e5e5;}
 .cl-wrap{padding:5px 6px 4px;display:flex;flex-direction:column;align-items:center;gap:3px;}
 .cl{text-align:center;font-size:11.5px;font-weight:600;line-height:1.4;word-break:keep-all;min-height:28px;outline:none;width:100%;}
 .cl[contenteditable="true"]{cursor:text;background:rgba(255,255,255,0.6);}
-.cl-wrap.has-link{cursor:pointer;}
-.cl-wrap.has-link:hover{filter:brightness(1.12);}
-.cl-wrap.has-link .cl::after{content:' 🔗';font-size:9px;opacity:0;transition:opacity .15s;}
-.cl-wrap.has-link:hover .cl::after{opacity:.7;}
 .col-acts{display:flex;align-items:center;gap:3px;justify-content:center;}
 .lbtn{font-size:10px;padding:2px 5px;border-radius:4px;border:.5px solid #ddd;background:transparent;cursor:pointer;display:none;align-items:center;gap:2px;color:#999;}
 .lbtn:hover{background:#f5f5f5;}
@@ -58,11 +58,16 @@ th,td{border:.5px solid #e5e5e5;}
 .dcb{font-size:10px;padding:2px 5px;border-radius:4px;border:.5px solid #ddd;background:transparent;cursor:pointer;display:none;align-items:center;color:#999;}
 .dcb:hover{color:rgba(200,0,0,0.8);}
 .edit-mode .dcb{display:inline-flex;}
+.col-lb{display:none;}
 .ry{text-align:center;font-size:11px;font-weight:600;color:#888;padding:6px 4px;background:#fafafa;white-space:nowrap;}
 .rc{padding:5px;vertical-align:middle;text-align:left;min-height:34px;cursor:pointer;}
 .rc.dh{background:rgba(55,138,221,.1);}
 .sw{display:flex;flex-wrap:wrap;gap:3px;justify-content:flex-start;align-items:center;padding-left:19px;}
-.sym{width:16px;height:16px;border-radius:3px;display:inline-flex;align-items:center;justify-content:center;position:relative;flex-shrink:0;cursor:pointer;font-size:11px;}
+.cl-wrap.has-link{cursor:pointer;}
+.cl-wrap.has-link:hover{filter:brightness(1.12);}
+.cl-wrap.has-link .cl::after{content:' 🔗';font-size:9px;opacity:0;transition:opacity .15s;}
+.cl-wrap.has-link:hover .cl::after{opacity:.7;}
+.sym{width:16px;height:16px;border-radius:3px;display:inline-flex;align-items:center;justify-content:center;position:relative;flex-shrink:0;cursor:pointer;}
 .sym:hover .tip{display:block;}
 .sym.sel{outline:2px solid #378ADD;outline-offset:1px;}
 .sym.has-own-link{outline:1px dashed #F59E0B;outline-offset:1px;}
@@ -76,41 +81,6 @@ th,td{border:.5px solid #e5e5e5;}
 .edit-mode .asb{display:inline-flex;}
 .ayb{font-size:11px;color:#bbb;background:none;border:.5px dashed #ddd;border-radius:6px;padding:3px 10px;cursor:pointer;margin:6px;display:none;align-items:center;gap:3px;}
 .edit-mode .ayb{display:inline-flex;}
-
-/* 모달 공통 */
-.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:200;display:none;align-items:center;justify-content:center;}
-.modal-bg.show{display:flex;}
-.modal{background:#fff;border-radius:14px;padding:20px;width:320px;max-width:92vw;box-shadow:0 8px 32px rgba(0,0,0,.15);}
-.modal h3{font-size:14px;font-weight:600;margin-bottom:14px;}
-.modal label{font-size:11px;color:#888;display:block;margin-bottom:4px;margin-top:10px;}
-.modal input[type=text]{width:100%;border:.5px solid #ddd;border-radius:6px;padding:7px 10px;font-size:13px;outline:none;}
-.modal input[type=text]:focus{border-color:#aaa;}
-.modal-btns{display:flex;gap:8px;margin-top:16px;justify-content:flex-end;}
-.mbtn{font-size:12px;padding:7px 14px;border-radius:6px;cursor:pointer;border:.5px solid #ddd;background:transparent;color:#555;}
-.mbtn:hover{background:#f5f5f5;}
-.mbtn.primary{background:#1a1a1a;color:#fff;border-color:transparent;}
-.mbtn.primary:hover{background:#333;}
-
-/* 색상 선택 */
-.color-grid{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;}
-.color-swatch{width:28px;height:28px;border-radius:6px;cursor:pointer;border:2px solid transparent;transition:transform .1s;}
-.color-swatch:hover{transform:scale(1.1);}
-.color-swatch.selected{border-color:#1a1a1a;}
-
-/* 이모지 픽커 */
-.emoji-section{margin-top:8px;}
-.emoji-cat-label{font-size:10px;color:#aaa;margin:8px 0 4px;font-weight:500;}
-.emoji-grid{display:flex;flex-wrap:wrap;gap:4px;}
-.emoji-btn{width:30px;height:30px;border-radius:6px;border:.5px solid #eee;background:#fafafa;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:background .1s;}
-.emoji-btn:hover{background:#f0f0f0;}
-.emoji-btn.selected{background:#EFF6FF;border-color:#93C5FD;}
-.emoji-input-row{display:flex;gap:6px;align-items:center;margin-top:8px;}
-.emoji-input-row input{flex:1;border:.5px solid #ddd;border-radius:6px;padding:5px 8px;font-size:13px;outline:none;}
-.emoji-preview{font-size:20px;width:32px;text-align:center;}
-
-/* 1페이지 편집 버튼 */
-.p1-edit-btn{position:fixed;bottom:16px;right:16px;background:#1a1a1a;color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:20px;cursor:pointer;z-index:50;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,.2);}
-
 #toast{position:fixed;bottom:20px;right:20px;background:#1a1a1a;color:#fff;font-size:12px;padding:8px 14px;border-radius:8px;z-index:9999;opacity:0;transition:opacity .3s;pointer-events:none;}
 #toast.show{opacity:1;}
 </style>
@@ -118,64 +88,13 @@ th,td{border:.5px solid #e5e5e5;}
 <body>
 
 <div id="toast">✓ 저장됨</div>
-
-<!-- 1페이지 설정 모달 -->
-<div class="modal-bg" id="p1modal">
-  <div class="modal">
-    <h3>📌 카테고리 설정</h3>
-    <label>카테고리 번호</label>
-    <div style="font-size:13px;color:#aaa" id="editCatNum"></div>
-    <label>이름</label>
-    <input type="text" id="editCatName" placeholder="예: 총칙">
-    <label>부제목</label>
-    <input type="text" id="editCatSub" placeholder="예: 법률행위·의사표시">
-    <label>배경 색상</label>
-    <div class="color-grid" id="catColorGrid"></div>
-    <div class="modal-btns">
-      <button class="mbtn" onclick="closeP1Modal()">취소</button>
-      <button class="mbtn primary" onclick="saveP1Modal()">저장</button>
-    </div>
-  </div>
-</div>
-
-<!-- 열 추가 모달 -->
-<div class="modal-bg" id="colModal">
-  <div class="modal">
-    <h3>열 추가</h3>
-    <label>열 이름</label>
-    <input type="text" id="colName" placeholder="예: 법률행위">
-    <label>심볼 색상</label>
-    <div class="color-grid" id="colColorGrid"></div>
-    <div class="modal-btns">
-      <button class="mbtn" onclick="closeColModal()">취소</button>
-      <button class="mbtn primary" onclick="saveColModal()">추가</button>
-    </div>
-  </div>
-</div>
-
-<!-- 토픽 추가 모달 (이모지 픽커) -->
-<div class="modal-bg" id="chipModal">
-  <div class="modal" style="width:360px">
-    <h3>토픽 추가</h3>
-    <label>이름</label>
-    <input type="text" id="chipName" placeholder="예: 법률행위의 종류">
-    <label>심볼 이모지 (선택)</label>
-    <div class="emoji-section" id="emojiSection"></div>
-    <div class="emoji-input-row">
-      <span class="emoji-preview" id="emojiPreview">■</span>
-      <input type="text" id="emojiCustom" placeholder="직접 입력" maxlength="2">
-    </div>
-    <div class="modal-btns">
-      <button class="mbtn" onclick="closeChipModal()">취소</button>
-      <button class="mbtn primary" onclick="saveChipModal()">추가</button>
-    </div>
-  </div>
-</div>
-
-<button class="p1-edit-btn" id="p1EditBtn" title="카테고리 편집">⚙️</button>
-
 <div class="pg on" id="p1">
-  <div class="grid" id="p1grid"></div>
+  <div class="grid">
+    <div class="cell c1" data-cat="0"><span class="cn">1</span><span class="ct">배경</span><span class="cs">K드라마로 보는 행정학 변화</span><i class="ti ti-chevron-right ca"></i></div>
+    <div class="cell c3" data-cat="2"><span class="cn">3</span><span class="ct">ㅈㅊ</span><span class="cs">정책</span><i class="ti ti-chevron-right ca"></i></div>
+    <div class="cell c2" data-cat="1"><span class="cn">2</span><span class="ct">ㅇㅅ</span><span class="cs">인사 · 예산 · 조직</span><i class="ti ti-chevron-right ca"></i></div>
+    <div class="cell c4" data-cat="3"><span class="cn">4</span><span class="ct">SVC</span><span class="cs">행정서비스 이론 · 현행 제도</span><i class="ti ti-chevron-right ca"></i></div>
+  </div>
 </div>
 
 <div class="pg" id="p2">
@@ -185,240 +104,211 @@ th,td{border:.5px solid #e5e5e5;}
     <span class="harrow">>></span>
     <div class="hnav" id="hnav"></div>
     <button class="ebtn" id="ebt"><i class="ti ti-edit"></i> 편집</button>
+    <button class="ebtn" id="exportBtn" style="margin-left:4px">📦 내보내기</button>
   </div>
-  <div class="hint">💡 열 제목 클릭 → 블로그 이동 / 편집: 🔗 링크설정, ■ 선택 후 이동</div>
+  <div class="hint">💡 열 🔗: 열 전체 링크 / ■ 하단 파란점: 그 칸만 개별 링크 / 개별링크 없으면 열 링크 따라옴</div>
   <div class="tw" id="tw"></div>
 </div>
 
-<script>
-var STORAGE_KEY='study_template_v1';
+<script type="module">
+import {initializeApp} from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+import {getFirestore,doc,getDoc,setDoc} from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 
-// ── 색상 팔레트 ──
-var PALETTES=[
-  {bg:'#FDEBD0',text:'#7D4A1A',sym:'#C2410C',label:'살구'},
-  {bg:'#D5EEE8',text:'#1A5C4A',sym:'#15803D',label:'민트'},
-  {bg:'#FEFBD0',text:'#6B6200',sym:'#B45309',label:'레몬'},
-  {bg:'#DFF2D0',text:'#2A5C1A',sym:'#166534',label:'초록'},
-  {bg:'#EEF2FF',text:'#3730A3',sym:'#1D4ED8',label:'블루'},
-  {bg:'#FDF4FF',text:'#7E22CE',sym:'#7E22CE',label:'보라'},
-  {bg:'#FFF1F2',text:'#9F1239',sym:'#BE123C',label:'핑크'},
-  {bg:'#F0F9FF',text:'#0369A1',sym:'#0369A1',label:'하늘'},
-  {bg:'#F5F5F5',text:'#444',sym:'#555',label:'회색'},
-  {bg:'#FFF7ED',text:'#C2410C',sym:'#EA580C',label:'오렌지'},
-];
+var firebaseConfig={
+  apiKey:'AIzaSyClPnElzTh0I8ZGOoMDOfWMVKKVzLS5BiQ',
+  authDomain:'uzootax.firebaseapp.com',
+  projectId:'uzootax',
+  storageBucket:'uzootax.firebasestorage.app',
+  messagingSenderId:'467976725281',
+  appId:'1:467976725281:web:f60a944f474a3362bf9460'
+};
+var app=initializeApp(firebaseConfig);
+var db=getFirestore(app);
+var DOC_REF=doc(db,'study','admin');
 
-// ── 이모지 카테고리 ──
-var EMOJI_CATS=[
-  {label:'■ 기본',emojis:['■','●','◆','▲','★','♦']},
-  {label:'🙂 사람',emojis:['👤','👥','🧑','👩','👨','🧒','🧑‍⚖️','🧑‍🏫','👮','🧑‍💼']},
-  {label:'📦 사물',emojis:['📚','📖','📝','📌','📎','🔑','⚖️','🏛','📜','🗂']},
-  {label:'🔢 숫자·기호',emojis:['①','②','③','④','⑤','⑥','⑦','⑧','⑨','⑩']},
-  {label:'🔷 도형',emojis:['🔴','🟠','🟡','🟢','🔵','🟣','🔶','🔷','🔸','🔹']},
-  {label:'😊 감정',emojis:['✅','❌','⚠️','💡','🔥','❄️','💎','🎯','⭐','🏆']},
-  {label:'🌍 우주·자연',emojis:['🌍','🌙','⭐','☀️','🌊','🌈','🌿','🍃','🌸','🦋']},
-];
-
-// ── 기본 데이터 (깡통) ──
-var DEFAULT_CATS=[
-  {label:'1',name:'분류 1',sub:'부제목을 입력하세요',palIdx:0,sections:[
-    {id:'s0',icon:'📜',label:'섹션 1',sc:'#1e3a8a',
-      cols:[{n:'열 1',palIdx:4,url:''}],
-      years:[{y:"25'",cells:[[]]}]},
-  ]},
-  {label:'2',name:'분류 2',sub:'부제목을 입력하세요',palIdx:1,sections:[
-    {id:'s1',icon:'📖',label:'섹션 1',sc:'#065f46',
-      cols:[{n:'열 1',palIdx:1,url:''}],
-      years:[{y:"25'",cells:[[]]}]},
-  ]},
-  {label:'3',name:'분류 3',sub:'부제목을 입력하세요',palIdx:2,sections:[
-    {id:'s2',icon:'⚙️',label:'섹션 1',sc:'#b45309',
-      cols:[{n:'열 1',palIdx:2,url:''}],
-      years:[{y:"25'",cells:[[]]}]},
-  ]},
-  {label:'4',name:'분류 4',sub:'부제목을 입력하세요',palIdx:3,sections:[
-    {id:'s3',icon:'🏛',label:'섹션 1',sc:'#14532d',
-      cols:[{n:'열 1',palIdx:3,url:''}],
-      years:[{y:"25'",cells:[[]]}]},
-  ]},
-];
-
-function loadData(){
-  try{var s=localStorage.getItem(STORAGE_KEY);return s?JSON.parse(s):JSON.parse(JSON.stringify(DEFAULT_CATS));}
-  catch(e){return JSON.parse(JSON.stringify(DEFAULT_CATS));}
+async function loadData(){
+  try{
+    var snap=await getDoc(DOC_REF);
+    if(snap.exists())return snap.data().cats;
+  }catch(e){console.error('load error',e);}
+  return JSON.parse(JSON.stringify(DEFAULT_CATS));
 }
+
 var _tt=null;
 function showToast(m){
   var t=document.getElementById('toast');t.textContent=m||'✓ 저장됨';t.classList.add('show');
-  if(_tt)clearTimeout(_tt);_tt=setTimeout(function(){t.classList.remove('show');},1500);
-}
-function saveData(){
-  try{localStorage.setItem(STORAGE_KEY,JSON.stringify(cats));showToast('✓ 저장됨');}
-  catch(e){showToast('⚠ 저장실패');}
+  if(_tt)clearTimeout(_tt);_tt=setTimeout(function(){t.classList.remove('show');},1800);
 }
 
-var cats=loadData();
+async function saveData(){
+  try{
+    await setDoc(DOC_REF,{cats:cats});
+    showToast('✓ 저장됨');
+  }catch(e){showToast('⚠ 저장실패: '+e.message);}
+}
+
+var STORAGE_KEY='admin_study_cats_v1'; // 미사용, 하위호환용
+var CC=[
+  {bg:'#EFF6FF',text:'#1D4ED8',sym:'#1D4ED8'},{bg:'#F0FDF4',text:'#15803D',sym:'#15803D'},
+  {bg:'#FFF7ED',text:'#C2410C',sym:'#C2410C'},{bg:'#FDF4FF',text:'#7E22CE',sym:'#7E22CE'},
+  {bg:'#ECFDF5',text:'#0F766E',sym:'#0F766E'},{bg:'#FFF1F2',text:'#BE123C',sym:'#BE123C'},
+  {bg:'#FFFBEB',text:'#B45309',sym:'#B45309'},{bg:'#F0F9FF',text:'#0369A1',sym:'#0369A1'}
+];
+var DEFAULT_CATS=[
+  {label:'1. 배경',color:'#FDEBD0',textColor:'#7D4A1A',sections:[
+    {id:'bg0',icon:'📜',label:'시대별 학파',sc:'#1e3a8a',
+      cols:[{n:'전통행정학',url:''},{n:'과학적관리론·행태론',url:''},{n:'신행정론',url:''},{n:'공공선택이론',url:''},{n:'신공공관리론',url:''},{n:'뉴거버넌스·NPS',url:''},{n:'규제합리화',url:''}],
+      years:[
+        {y:"25'",cells:[[],[],[],['공공선택이론 기본가정'],['NPM 시장성테스트','공직봉사동기(PSM)'],['뉴거버넌스'],[]]},
+        {y:"24'",cells:[[],['행정이론-이념 연결'],[],['외부효과'],['오스본·게블러 NPM비교'],['행정학 패러다임'],[]]},
+        {y:"23'",cells:[[],[],['행정학 패러다임'],['공익 실체설·과정설'],['행정학 패러다임'],['뉴거버넌스·신행정학'],[]]},
+        {y:"22'",cells:[[],[],[],[],['신공공서비스론'],['신공공서비스론'],[]]},
+      ]},
+    {id:'bg1',icon:'🗼',label:'등대',sc:'#5B21B6',
+      cols:[{n:'행정가치·이념',url:''},{n:'리더십',url:''},{n:'행정학 성격·접근',url:''}],
+      years:[
+        {y:"25'",cells:[['행정의 가치'],['거래적·변혁적 리더십'],['접근방법','행정학 성격']]},
+        {y:"24'",cells:[[],[],['행태론적 접근방법','신제도주의']]},
+        {y:"23'",cells:[[],[],['행태론적 접근방법','신제도주의']]},
+        {y:"22'",cells:[[],[],['신제도주의론','행태주의']]},
+      ]},
+    {id:'bg2',icon:'💡',label:'알쓸신잡',sc:'#0369A1',
+      cols:[{n:'재정학',url:''},{n:'학자·이론가',url:''}],
+      years:[
+        {y:"25'",cells:[[],[]]},
+        {y:"24'",cells:[['외부효과','정부실패이론'],['관리과학']]},
+        {y:"23'",cells:[['시장실패·정부실패'],['동기부여이론','시뮬레이션·미래예측기법']]},
+        {y:"22'",cells:[['지방재정조정제도'],['능률성·효과성']]},
+      ]},
+  ]},
+  {label:'2. ㅇㅅ',color:'#D5EEE8',textColor:'#1A5C4A',sections:[
+    {id:'os0',icon:'🏢',label:'Organization',sc:'#065f46',
+      cols:[{n:'조직구조 유형',url:''},{n:'조직과정·변동',url:''},{n:'조직문화·갈등',url:''}],
+      years:[
+        {y:"25'",cells:[['대프트 조직구조 유형'],[],[]]},
+        {y:"24'",cells:[['현대조직이론'],[],[]]},
+        {y:"23'",cells:[['기계적·유기적 구조','조직구조 설계 요소'],['학습조직'],[]]},
+        {y:"22'",cells:[['기계적 조직·학습조직 비교'],['분권화 요구 상황'],[]]},
+      ]},
+    {id:'os1',icon:'👤',label:'인사',sc:'#1A5C4A',
+      cols:[{n:'직위분류제·계급제',url:''},{n:'임용·승진·평가',url:''},{n:'교육훈련',url:''},{n:'윤리·행동규범',url:''}],
+      years:[
+        {y:"25'",cells:[['직위분류제'],['채용시험 효용성'],['감수성훈련'],['이해충돌','행동규범']]},
+        {y:"24'",cells:[[],['중앙인사기관','경력직공무원'],['교육훈련 이용권'],['공직자윤리법']]},
+        {y:"23'",cells:[['직위분류제·직군·직렬'],['근무성적평정','국가공무원법 징계'],['감수성훈련'],['정부실패']]},
+        {y:"22'",cells:[['직업공무원제','고위공무원단'],['근무성적평가 대상'],['행정개혁 행태적접근'],['이해충돌방지법']]},
+      ]},
+    {id:'os2',icon:'💰',label:'예산',sc:'#92400e',
+      cols:[{n:'예산원칙·종류',url:''},{n:'예산과정·절차',url:''},{n:'예산제도·개혁',url:''}],
+      years:[
+        {y:"25'",cells:[[],['국가재정법'],['점증주의 예산','예산제도']]},
+        {y:"24'",cells:[['예산원칙과 예외'],['이용·전용·이체·이월'],['성과주의예산']]},
+        {y:"23'",cells:[['예산 내용 분류방법'],['재정사업자율평가'],['전통적·현대적 예산원칙']]},
+        {y:"22'",cells:[['예산안 구성요소'],['국회 예산결산'],['예산제도']]},
+      ]},
+  ]},
+  {label:'3. ㅈㅊ',color:'#FEFBD0',textColor:'#6B6200',sections:[
+    {id:'jp0',icon:'⏮',label:'Pre',sc:'#6B6200',
+      cols:[{n:'의제설정 모형',url:''},{n:'정책문제 구조화',url:''}],
+      years:[
+        {y:"25'",cells:[['콥&엘더 의제설정'],[]]},
+        {y:"24'",cells:[[],[]]},{y:"23'",cells:[[],[]]},
+        {y:"22'",cells:[['정책의제 설정 영향요인'],[]]},
+      ]},
+    {id:'jp1',icon:'⚙️',label:'Production',sc:'#b45309',
+      cols:[{n:'정책결정모형',url:''},{n:'정책집행론',url:''}],
+      years:[
+        {y:"25'",cells:[['정책결정모형'],['상향식 집행론']]},
+        {y:"24'",cells:[['정책결정모형'],['하향적 접근방법']]},
+        {y:"23'",cells:[[],['나카무라·스몰우드']]},
+        {y:"22'",cells:[['정책결정모형'],['나카무라·스몰우드','하향적 접근방법']]},
+      ]},
+    {id:'jp2',icon:'⏭',label:'Post',sc:'#92400e',
+      cols:[{n:'정책평가',url:''},{n:'정책변동',url:''},{n:'행정개혁',url:''}],
+      years:[
+        {y:"25'",cells:[[],[],[]]},{y:"24'",cells:[[],[],[]]},
+        {y:"23'",cells:[[],[],['행정개혁 저항 극복','행정개혁 구조적 접근']]},
+        {y:"22'",cells:[[],[],['행정개혁 저항 극복','행정개혁 구조적 접근']]},
+      ]},
+    {id:'jp3',icon:'🤝',label:'참여자',sc:'#3B3200',
+      cols:[{n:'다원주의·이익집단',url:''},{n:'하위정부·철의삼각',url:''},{n:'정책공동체·이슈네트워크',url:''}],
+      years:[
+        {y:"25'",cells:[[],[],['정책과정 참여자']]},
+        {y:"24'",cells:[[],[],[]]},
+        {y:"23'",cells:[['무의사결정론'],[],[]]},
+        {y:"22'",cells:[['정책과정 공식적 참여자'],[],[]]},
+      ]},
+    {id:'jp4',icon:'📐',label:'정책이론',sc:'#4B5563',
+      cols:[{n:'이론모형 비교',url:''},{n:'이론·시각',url:''}],
+      years:[
+        {y:"25'",cells:[[],[]]},
+        {y:"24'",cells:[['정책결정 이론모형'],['정책이론(마르크스·엘리트·다원론)']]},
+        {y:"23'",cells:[[],[]]},{y:"22'",cells:[[],[]]},
+      ]},
+  ]},
+  {label:'4. SVC',color:'#DFF2D0',textColor:'#2A5C1A',sections:[
+    {id:'sv0',icon:'📚',label:'이론적 서비스',sc:'#14532d',
+      cols:[{n:'서비스 전달방식',url:''},{n:'민영화·민간위탁',url:''},{n:'시민참여',url:''}],
+      years:[
+        {y:"25'",cells:[['프랜차이즈'],[],[]]},
+        {y:"24'",cells:[['공공서비스 생산방식(voucher)'],[],[]]},
+        {y:"23'",cells:[[],[],[]]},
+        {y:"22'",cells:[[],[],['주민의 권리','주민소송']]},
+      ]},
+    {id:'sv1',icon:'🏛',label:'현재 정책 서비스',sc:'#2A5C1A',
+      cols:[{n:'전자정부·디지털',url:''},{n:'지방자치·지방의회',url:''},{n:'국가-지자체 관계',url:''},{n:'규제·감독·통제',url:''}],
+      years:[
+        {y:"25'",cells:[[],['지방의회 징계'],['국가-지자체 관계','보조기관'],[]]},
+        {y:"24'",cells:[['스마트전자정부'],['지방의회 권한','자치경찰제','도농통합'],['지방자치 설명'],['공식적 수단 행정통제']]},
+        {y:"23'",cells:[[],['특별지방자치단체','지방자치단체 사무배분'],['주민자치'],['행정통제 유형']]},
+        {y:"22'",cells:[['전자정부·공공행정'],['지방자치단체 유형·특징'],['중앙-지방 재정조정 형태'],['행정통제 외부통제']]},
+      ]},
+  ]},
+];
+
+// localStorage 로드
+var cats=JSON.parse(JSON.stringify(DEFAULT_CATS));
 var cur=0,editMode=false,sel=null,selSec=null;
-var _modalSi=null,_modalCi=null,_editCatIdx=null;
-var _selectedPalIdx=0,_selectedEmoji='■';
 
-// ── chip helpers ──
-function chipLabel(c){return typeof c==='string'?c:(c.l||'?');}
-function chipEmoji(c){return typeof c==='string'?'■':(c.e||'■');}
+function chipLabel(c){return typeof c==='string'?c:c.l;}
 function chipUrl(c){return typeof c==='string'?'':c.url||'';}
-function chipSym(c){return typeof c==='string'?null:c.sym||null;}
-function resolveUrl(sec,ci,chip){return chipUrl(chip)||sec.cols[ci].url||'';}
-
-// ── 1페이지 렌더 ──
-function renderP1(){
-  var grid=document.getElementById('p1grid');
-  grid.innerHTML=cats.map(function(cat,i){
-    var pal=PALETTES[cat.palIdx%PALETTES.length];
-    var pos=[0,2,1,3][i]; // 배치순서: 좌상,우상,좌하,우하
-    return '<div class="cell" data-cat="'+i+'" style="background:'+pal.bg+';color:'+pal.text+';order:'+pos+';border:.5px solid rgba(0,0,0,.08)">'+
-      '<span class="cn">'+cat.label+'</span>'+
-      '<span class="ct">'+cat.name+'</span>'+
-      '<span class="cs">'+cat.sub+'</span>'+
-      '<i class="ti ti-chevron-right ca"></i></div>';
-  }).join('');
-  grid.querySelectorAll('.cell').forEach(function(el){
-    el.addEventListener('click',function(){goCat(parseInt(this.dataset.cat));});
-  });
+function setChipUrl(sec,yi,ci,ki,url){
+  var chip=sec.years[yi].cells[ci][ki];
+  var l=chipLabel(chip);
+  sec.years[yi].cells[ci][ki]=url?{l:l,url:url}:l;
+}
+function resolveUrl(sec,ci,chip){
+  var own=chipUrl(chip);
+  return own||sec.cols[ci].url||'';
 }
 
-// ── 1페이지 설정 모달 ──
-var _editCatColors=['#FDEBD0','#D5EEE8','#FEFBD0','#DFF2D0','#EEF2FF','#FDF4FF','#FFF1F2','#F0F9FF','#F5F5F5','#FFF7ED'];
-function openP1Modal(){
-  // 어느 카테고리 편집할지 선택
-  var idx=parseInt(prompt('편집할 분류 번호 (1~4)','1'));
-  if(isNaN(idx)||idx<1||idx>4)return;
-  _editCatIdx=idx-1;
-  var cat=cats[_editCatIdx];
-  document.getElementById('editCatNum').textContent='분류 '+cat.label;
-  document.getElementById('editCatName').value=cat.name;
-  document.getElementById('editCatSub').value=cat.sub;
-  _selectedPalIdx=cat.palIdx||0;
-  renderColorGrid('catColorGrid',_selectedPalIdx,function(i){_selectedPalIdx=i;});
-  document.getElementById('p1modal').classList.add('show');
-}
-function closeP1Modal(){document.getElementById('p1modal').classList.remove('show');}
-function saveP1Modal(){
-  var cat=cats[_editCatIdx];
-  cat.name=document.getElementById('editCatName').value.trim()||cat.name;
-  cat.sub=document.getElementById('editCatSub').value.trim()||cat.sub;
-  cat.palIdx=_selectedPalIdx;
-  saveData();renderP1();closeP1Modal();
-}
-
-// ── 색상 그리드 ──
-function renderColorGrid(containerId,selectedIdx,onSelect){
-  var el=document.getElementById(containerId);
-  el.innerHTML=PALETTES.map(function(p,i){
-    return '<div class="color-swatch'+(i===selectedIdx?' selected':'')+'" style="background:'+p.bg+';border-color:'+(i===selectedIdx?p.text:'transparent')+'" data-idx="'+i+'" title="'+p.label+'"></div>';
-  }).join('');
-  el.querySelectorAll('.color-swatch').forEach(function(sw){
-    sw.addEventListener('click',function(){
-      selectedIdx=parseInt(this.dataset.idx);
-      onSelect(selectedIdx);
-      el.querySelectorAll('.color-swatch').forEach(function(s,i){
-        s.classList.toggle('selected',i===selectedIdx);
-        s.style.borderColor=i===selectedIdx?PALETTES[i].text:'transparent';
-      });
-    });
-  });
-}
-
-// ── 열 추가 모달 ──
-var _colPalIdx=0;
-function openColModal(si){
-  _modalSi=si;_colPalIdx=0;
-  document.getElementById('colName').value='';
-  renderColorGrid('colColorGrid',_colPalIdx,function(i){_colPalIdx=i;});
-  document.getElementById('colModal').classList.add('show');
-  setTimeout(function(){document.getElementById('colName').focus();},100);
-}
-function closeColModal(){document.getElementById('colModal').classList.remove('show');}
-function saveColModal(){
-  var n=document.getElementById('colName').value.trim();
-  if(!n)return;
-  var sec=cats[cur].sections[_modalSi];
-  sec.cols.push({n:n,palIdx:_colPalIdx,url:''});
-  sec.years.forEach(function(r){r.cells.push([]);});
-  saveData();renderP2();closeColModal();
-}
-
-// ── 이모지 픽커 ──
-function renderEmojiPicker(){
-  var sec=document.getElementById('emojiSection');
-  sec.innerHTML=EMOJI_CATS.map(function(cat){
-    return '<div class="emoji-cat-label">'+cat.label+'</div>'+
-      '<div class="emoji-grid">'+cat.emojis.map(function(e){
-        return '<button class="emoji-btn'+(e===_selectedEmoji?' selected':'')+'" data-e="'+e+'">'+e+'</button>';
-      }).join('')+'</div>';
-  }).join('');
-  sec.querySelectorAll('.emoji-btn').forEach(function(btn){
-    btn.addEventListener('click',function(){
-      _selectedEmoji=this.dataset.e;
-      document.getElementById('emojiPreview').textContent=_selectedEmoji;
-      document.getElementById('emojiCustom').value='';
-      sec.querySelectorAll('.emoji-btn').forEach(function(b){b.classList.toggle('selected',b.dataset.e===_selectedEmoji);});
-    });
-  });
-}
-function openChipModal(si,yi,ci){
-  _modalSi=si;_modalCi={yi:yi,ci:ci};
-  _selectedEmoji='■';
-  document.getElementById('chipName').value='';
-  document.getElementById('emojiPreview').textContent='■';
-  document.getElementById('emojiCustom').value='';
-  renderEmojiPicker();
-  document.getElementById('chipModal').classList.add('show');
-  setTimeout(function(){document.getElementById('chipName').focus();},100);
-}
-function closeChipModal(){document.getElementById('chipModal').classList.remove('show');}
-function saveChipModal(){
-  var n=document.getElementById('chipName').value.trim();
-  if(!n)return;
-  var custom=document.getElementById('emojiCustom').value.trim();
-  var emoji=custom||_selectedEmoji;
-  var yi=_modalCi.yi,ci=_modalCi.ci;
-  var sec=cats[cur].sections[_modalSi];
-  if(!sec.years[yi].cells[ci])sec.years[yi].cells[ci]=[];
-  sec.years[yi].cells[ci].push({l:n,e:emoji,url:''});
-  saveData();renderP2();closeChipModal();
-}
-document.getElementById('emojiCustom').addEventListener('input',function(){
-  if(this.value){_selectedEmoji=this.value;document.getElementById('emojiPreview').textContent=this.value;}
-});
-
-// ── 내비 ──
 function go(p){
   document.querySelectorAll('.pg').forEach(function(x){x.classList.remove('on');});
   document.getElementById('p'+p).classList.add('on');
-  document.getElementById('p1EditBtn').style.display=p===1?'flex':'none';
   if(p===1){editMode=false;sel=null;selSec=null;}
 }
 function goCat(i){cur=i;renderP2();go(2);}
 function toggleEdit(){editMode=!editMode;sel=null;selSec=null;renderP2();}
 function scrollSec(si){var el=document.getElementById('sec-'+cats[cur].sections[si].id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});}
 
-// ── 링크 ──
 function setColLink(si,ci){
   var col=cats[cur].sections[si].cols[ci];
   var url=prompt('열 전체 링크 (비우면 삭제)',col.url||'');
-  if(url===null)return;col.url=url.trim();saveData();renderP2();
+  if(url===null)return;
+  col.url=url.trim();
+  saveData();renderP2();
 }
 function setSymLink(si,yi,ci,ki){
   var sec=cats[cur].sections[si];
   var chip=sec.years[yi].cells[ci][ki];
   var cur_url=chipUrl(chip);
-  var msg='이 칸 개별 링크 (비우면 열 링크 사용)\n현재: '+(cur_url||'없음');
+  var colUrl=sec.cols[ci].url||'';
+  var msg='이 칸 개별 링크\n(비우면 열 링크 사용'+(colUrl?' → '+colUrl.substring(0,30):'')+')\n현재: '+(cur_url||'없음');
   var url=prompt(msg,cur_url);
   if(url===null)return;
-  if(typeof chip==='string')sec.years[yi].cells[ci][ki]={l:chip,e:'■',url:url.trim()};
-  else chip.url=url.trim();
+  setChipUrl(sec,yi,ci,ki,url.trim());
   saveData();renderP2();
 }
-
 function handleTdClick(si,yi,ci){
   if(editMode){cellMove(si,yi,ci);}
   else{var u=cats[cur].sections[si].cols[ci].url;if(u)window.open(u,'_blank');}
@@ -429,7 +319,6 @@ function handleSymClick(e,si,yi,ci,ki){
   else{var sec=cats[cur].sections[si];var chip=sec.years[yi].cells[ci][ki];var u=resolveUrl(sec,ci,chip);if(u)window.open(u,'_blank');}
 }
 
-// ── 렌더 ──
 function renderHNav(){
   var html='';
   cats[cur].sections.forEach(function(s,si){
@@ -445,38 +334,27 @@ function renderHNav(){
 function renderSec(sec,si){
   var h='<div class="sb" id="sec-'+sec.id+'"><div class="sh"><span style="font-size:14px">'+sec.icon+'</span><span class="sl" style="color:'+sec.sc+'">'+sec.label+'</span><button class="acb" data-si="'+si+'">+ 열 추가</button></div><table><thead><tr><th class="ty"></th>';
   sec.cols.forEach(function(col,ci){
-    var pal=PALETTES[(col.palIdx||ci)%PALETTES.length];
+    var clr=CC[ci%CC.length];
     var hl=col.url&&col.url.length>0;
-    var clwCls='cl-wrap'+(hl&&!editMode?' has-link':'');
-    var clwData=hl&&!editMode?' data-si="'+si+'" data-ci="'+ci+'" data-collink="1"':'';
-    h+='<th class="tc" style="background:'+pal.bg+'"><div class="'+clwCls+'"'+clwData+'>';
-    h+='<div class="cl" style="color:'+pal.text+'"'+(editMode?' contenteditable="true" data-si="'+si+'" data-ci="'+ci+'"':'')+'>'+( ci+1)+'. '+col.n+'</div>';
+    var clwrapCls='cl-wrap'+(hl&&!editMode?' has-link':'');
+    var clwrapData=hl&&!editMode?' data-si="'+si+'" data-ci="'+ci+'" data-collink="1"':'';
+    h+='<th class="tc" style="background:'+clr.bg+'"><div class="'+clwrapCls+'"'+clwrapData+'><div class="cl" style="color:'+clr.text+'"'+(editMode?' contenteditable="true" data-si="'+si+'" data-ci="'+ci+'"':'')+'>'+( ci+1)+'. '+col.n+'</div>';
     h+='<div class="col-acts"><button class="lbtn'+(hl?' has-link':'')+'" data-si="'+si+'" data-ci="'+ci+'">🔗 '+(hl?'수정':'추가')+'</button><button class="dcb" data-si="'+si+'" data-ci="'+ci+'">✕</button></div></div></th>';
   });
   h+='</tr></thead><tbody>';
   sec.years.forEach(function(row,yi){
     h+='<tr><td class="ry">'+row.y+'</td>';
     sec.cols.forEach(function(col,ci){
-      var pal=PALETTES[(col.palIdx||ci)%PALETTES.length];
-      var chips=row.cells[ci]||[];
+      var clr=CC[ci%CC.length],chips=row.cells[ci]||[];
       var isDrop=sel&&selSec===si&&!(sel.yi===yi&&sel.ci===ci);
       h+='<td class="rc'+(isDrop&&editMode?' dh':'')+'" data-si="'+si+'" data-yi="'+yi+'" data-ci="'+ci+'"><div class="sw">';
       chips.forEach(function(chip,ki){
         var isSel=sel&&selSec===si&&sel.yi===yi&&sel.ci===ci&&sel.ki===ki;
         var ownUrl=chipUrl(chip);
         var effUrl=resolveUrl(sec,ci,chip);
-        var emoji=chipEmoji(chip);
+        var hasOwn=ownUrl.length>0;
         var tipTxt=chipLabel(chip)+(effUrl&&!editMode?' 🔗':'');
-        var symStyle='background:'+pal.sym+';color:white;';
-        // 이모지가 텍스트면 배경색, 그림문자면 투명
-        var isTextSym=['■','●','◆','▲','★','♦'].indexOf(emoji)>=0||emoji.length<=1&&emoji.charCodeAt(0)<256;
-        if(!isTextSym)symStyle='background:transparent;font-size:13px;';
-        h+='<span class="sym'+(isSel?' sel':'')+(ownUrl?' has-own-link':'')+'" style="'+symStyle+'" data-si="'+si+'" data-yi="'+yi+'" data-ci="'+ci+'" data-ki="'+ki+'">';
-        h+='<span class="tip">'+tipTxt+'</span>';
-        h+=emoji;
-        h+='<button class="dsb" data-si="'+si+'" data-yi="'+yi+'" data-ci="'+ci+'" data-ki="'+ki+'">✕</button>';
-        h+='<button class="sym-link-btn" data-si="'+si+'" data-yi="'+yi+'" data-ci="'+ci+'" data-ki="'+ki+'">🔗</button>';
-        h+='</span>';
+        h+='<span class="sym'+(isSel?' sel':'')+(hasOwn?' has-own-link':'')+'" style="background:'+clr.sym+'" data-si="'+si+'" data-yi="'+yi+'" data-ci="'+ci+'" data-ki="'+ki+'"><span class="tip">'+tipTxt+'</span><button class="dsb" data-si="'+si+'" data-yi="'+yi+'" data-ci="'+ci+'" data-ki="'+ki+'">✕</button><button class="sym-link-btn" data-si="'+si+'" data-yi="'+yi+'" data-ci="'+ci+'" data-ki="'+ki+'">🔗</button></span>';
       });
       h+='<button class="asb" data-si="'+si+'" data-yi="'+yi+'" data-ci="'+ci+'">+</button></div></td>';
     });
@@ -495,7 +373,7 @@ function bindTw(){
       if(u)window.open(u,'_blank');
     });
   });
-  tw.querySelectorAll('.acb').forEach(function(el){el.addEventListener('click',function(){openColModal(+this.dataset.si);});});
+  tw.querySelectorAll('.acb').forEach(function(el){el.addEventListener('click',function(){addCol(+this.dataset.si);});});
   tw.querySelectorAll('.lbtn').forEach(function(el){el.addEventListener('click',function(){setColLink(+this.dataset.si,+this.dataset.ci);});});
   tw.querySelectorAll('.dcb').forEach(function(el){el.addEventListener('click',function(){delCol(+this.dataset.si,+this.dataset.ci);});});
   tw.querySelectorAll('.ayb').forEach(function(el){el.addEventListener('click',function(){addYear(+this.dataset.si);});});
@@ -503,15 +381,14 @@ function bindTw(){
   tw.querySelectorAll('.sym').forEach(function(el){el.addEventListener('click',function(e){handleSymClick(e,+this.dataset.si,+this.dataset.yi,+this.dataset.ci,+this.dataset.ki);});});
   tw.querySelectorAll('.dsb').forEach(function(el){el.addEventListener('click',function(e){e.stopPropagation();delChip(+this.dataset.si,+this.dataset.yi,+this.dataset.ci,+this.dataset.ki);});});
   tw.querySelectorAll('.sym-link-btn').forEach(function(el){el.addEventListener('click',function(e){e.stopPropagation();setSymLink(+this.dataset.si,+this.dataset.yi,+this.dataset.ci,+this.dataset.ki);});});
-  tw.querySelectorAll('.asb').forEach(function(el){el.addEventListener('click',function(e){e.stopPropagation();openChipModal(+this.dataset.si,+this.dataset.yi,+this.dataset.ci);});});
+  tw.querySelectorAll('.asb').forEach(function(el){el.addEventListener('click',function(e){e.stopPropagation();addChip(+this.dataset.si,+this.dataset.yi,+this.dataset.ci);});});
   tw.querySelectorAll('.cl[contenteditable]').forEach(function(el){el.addEventListener('blur',function(){saveCol(+this.dataset.si,+this.dataset.ci,this);});});
 }
 
 function renderP2(){
   var c=cats[cur];
-  var pal=PALETTES[c.palIdx%PALETTES.length];
-  document.getElementById('p2b').textContent=c.label+'. '+c.name;
-  document.getElementById('p2b').style.cssText='background:'+pal.bg+';color:'+pal.text+';';
+  document.getElementById('p2b').textContent=c.label;
+  document.getElementById('p2b').style.cssText='background:'+c.color+';color:'+c.textColor+';';
   var btn=document.getElementById('ebt');
   btn.className='ebtn'+(editMode?' on':'');
   btn.innerHTML=editMode?'<i class="ti ti-check"></i> 완료':'<i class="ti ti-edit"></i> 편집';
@@ -524,35 +401,38 @@ function renderP2(){
 }
 
 function saveCol(si,ci,el){cats[cur].sections[si].cols[ci].n=el.textContent.trim().replace(/^\d+\.\s*/,'');saveData();}
-function selectSym(si,yi,ci,ki){
-  if(sel&&selSec===si&&sel.yi===yi&&sel.ci===ci&&sel.ki===ki){sel=null;selSec=null;}
-  else{sel={yi:yi,ci:ci,ki:ki};selSec=si;}
-  renderP2();
-}
-function cellMove(si,yi,ci){
-  if(!sel||selSec!==si||(sel.yi===yi&&sel.ci===ci))return;
-  var sec=cats[cur].sections[si];
-  var chip=sec.years[sel.yi].cells[sel.ci].splice(sel.ki,1)[0];
-  if(!sec.years[yi].cells[ci])sec.years[yi].cells[ci]=[];
-  sec.years[yi].cells[ci].push(chip);
-  sel=null;selSec=null;saveData();renderP2();
-}
+function selectSym(si,yi,ci,ki){if(sel&&selSec===si&&sel.yi===yi&&sel.ci===ci&&sel.ki===ki){sel=null;selSec=null;}else{sel={yi:yi,ci:ci,ki:ki};selSec=si;}renderP2();}
+function cellMove(si,yi,ci){if(!sel||selSec!==si||(sel.yi===yi&&sel.ci===ci))return;var sec=cats[cur].sections[si];var chip=sec.years[sel.yi].cells[sel.ci].splice(sel.ki,1)[0];if(!sec.years[yi].cells[ci])sec.years[yi].cells[ci]=[];sec.years[yi].cells[ci].push(chip);sel=null;selSec=null;saveData();renderP2();}
 function delChip(si,yi,ci,ki){cats[cur].sections[si].years[yi].cells[ci].splice(ki,1);sel=null;selSec=null;saveData();renderP2();}
+function addChip(si,yi,ci){var n=prompt('토픽 입력');if(!n)return;if(!cats[cur].sections[si].years[yi].cells[ci])cats[cur].sections[si].years[yi].cells[ci]=[];cats[cur].sections[si].years[yi].cells[ci].push(n);saveData();renderP2();}
+function addCol(si){var n=prompt('열 이름');if(!n)return;var sec=cats[cur].sections[si];sec.cols.push({n:n,url:''});sec.years.forEach(function(r){r.cells.push([]);});saveData();renderP2();}
 function delCol(si,ci){if(!confirm('삭제?'))return;var sec=cats[cur].sections[si];sec.cols.splice(ci,1);sec.years.forEach(function(r){r.cells.splice(ci,1);});saveData();renderP2();}
 function addYear(si){var y=prompt("연도 (예: 21')");if(!y)return;var sec=cats[cur].sections[si];sec.years.push({y:y,cells:sec.cols.map(function(){return[];})});saveData();renderP2();}
 
-// ── 이벤트 ──
+document.querySelectorAll('.cell').forEach(function(el){
+  el.addEventListener('click',function(){goCat(parseInt(this.dataset.cat));});
+});
 document.getElementById('backBtn').addEventListener('click',function(){go(1);});
 document.getElementById('ebt').addEventListener('click',function(){toggleEdit();});
-document.getElementById('p1EditBtn').addEventListener('click',function(){openP1Modal();});
 
-// 모달 배경 클릭 닫기
-['p1modal','colModal','chipModal'].forEach(function(id){
-  document.getElementById(id).addEventListener('click',function(e){if(e.target===this)this.classList.remove('show');});
+function exportData(){
+  var json=JSON.stringify(cats,null,2);
+  var blob=new Blob([json],{type:'application/json'});
+  var a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='admin_study_data.json';
+  a.click();
+  showToast('📦 내보내기 완료');
+}
+document.getElementById('exportBtn').addEventListener('click',exportData);
+
+// ── Firebase에서 데이터 로드 후 시작 ──
+showToast('⏳ 데이터 불러오는 중...');
+loadData().then(function(data){
+  cats=data;
+  renderP2();
+  showToast('✓ 불러오기 완료');
 });
-
-// ── 초기화 ──
-renderP1();
 </script>
 </body>
 </html>
